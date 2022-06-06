@@ -27,13 +27,13 @@ open class PKHUDSuccessView: PKHUDSquareBaseView, PKHUDAnimating {
         layer.lineCap     = .round
         layer.lineJoin    = .round
         #else
-        layer.fillMode    = kCAFillModeForwards
-        layer.lineCap     = kCALineCapRound
-        layer.lineJoin    = kCALineJoinRound
+        layer.fillMode    = CAMediaTimingFillMode.forwards
+        layer.lineCap     = CAShapeLayerLineCap.round
+        layer.lineJoin    = CAShapeLayerLineJoin.round
         #endif
 
         layer.fillColor   = nil
-        layer.strokeColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0).cgColor
+        layer.strokeColor = HUDConfig.mainColor.cgColor //UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0)
         layer.lineWidth   = 6.0
         return layer
     }()

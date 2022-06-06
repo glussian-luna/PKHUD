@@ -25,6 +25,7 @@ open class PKHUDSquareBaseView: UIView {
     public init(image: UIImage? = nil, title: String? = nil, subtitle: String? = nil) {
         super.init(frame: PKHUDSquareBaseView.defaultSquareBaseViewFrame)
         self.imageView.image = image
+        imageView.tintColor = HUDConfig.mainColor
         titleLabel.text = title
         subtitleLabel.text = subtitle
 
@@ -44,8 +45,8 @@ open class PKHUDSquareBaseView: UIView {
     public let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 17.0)
-        label.textColor = UIColor.black.withAlphaComponent(0.85)
+        label.font = HUDConfig.titleLabelFont
+        label.textColor = HUDConfig.mainColor
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.25
         return label
@@ -54,8 +55,8 @@ open class PKHUDSquareBaseView: UIView {
     public let subtitleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 14.0)
-        label.textColor = UIColor.black.withAlphaComponent(0.7)
+        label.font = HUDConfig.subtitleLabelFont
+        label.textColor = HUDConfig.subtitleColor
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         label.adjustsFontSizeToFitWidth = true
@@ -78,6 +79,6 @@ open class PKHUDSquareBaseView: UIView {
         titleLabel.frame = CGRect(origin: CGPoint(x: originX, y: 0.0), size: CGSize(width: viewWidth, height: quarterHeight))
         imageView.frame = CGRect(origin: CGPoint(x: originX, y: quarterHeight), size: CGSize(width: viewWidth, height: halfHeight))
         subtitleLabel.frame = CGRect(origin: CGPoint(x: originX, y: threeQuarterHeight), size: CGSize(width: viewWidth, height: quarterHeight))
-
+        
     }
 }
